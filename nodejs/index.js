@@ -13,14 +13,12 @@ mongoose
     console.log("connected to the datatbase");
   });
   const schema = new mongoose.Schema({
-    imgname: String,
+    imgname:{
+      type: String,
+        required: true,
+    },
   });
   const userimg = mongoose.model("Usersimg", schema);
-
-  //testing the routes
-// app.get("/", async (req, res) => {
-//   res.send("<h1>this is the heading tag</h1>");
-// });
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
@@ -44,26 +42,6 @@ app.post('/upload',upload.single('file'),(req,res)=>{
       res.status(500).json({ error: 'Internal Server Error' });
     });
 })
-
-
-
-
-
-
-//testing the data base
-// const user = mongoose.model("users", schema);
-// app.post("/log", async (req, res) => {
-//   try {
-//     const data = new user({
-//       name: req.body.name,
-//     });
-//     await data.save();
-//     res.json({ message: "Data saved successfully" });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
 app.listen("5000", () => {
   console.log("listining on the port 5k");
 });

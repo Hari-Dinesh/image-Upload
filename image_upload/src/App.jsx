@@ -5,7 +5,7 @@ function App() {
   const [file,setfile]=useState();
   
   const handlupdate=()=>{
-    const formdata=new FormData()
+  const formdata=new FormData()
   formdata.append('file',file)
   axios.post('http://localhost:5000/upload',formdata).then(res=>console.log(res)).catch((err)=>{
     console.log(err);
