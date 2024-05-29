@@ -1,5 +1,5 @@
 # Use an official Node runtime as a parent image
-FROM node:22
+FROM node:20.11.0
 
 # Set the working directory in the container
 WORKDIR /var/app
